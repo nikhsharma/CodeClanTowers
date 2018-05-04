@@ -5,12 +5,16 @@ import java.util.ArrayList;
 public abstract class Room {
 
     private ArrayList<String> guests;
+    private int capacity;
 
-    public Room() {
+    public Room(int capacity) {
         this.guests = new ArrayList<>();
+        this.capacity = capacity;
     }
 
-    public abstract int getCapacity();
+    public int getCapacity() {
+        return capacity;
+    }
 
     public int guestCount() {
         return guests.size();
