@@ -1,4 +1,4 @@
-import guest.Guest;
+import guests.Guest;
 import org.junit.Before;
 import org.junit.Test;
 import rooms.ConferenceRoom;

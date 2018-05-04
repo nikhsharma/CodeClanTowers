@@ -1,4 +1,4 @@
-package guest;
+package guests;
 
 public class Guest {
 

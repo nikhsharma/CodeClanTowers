@@ -1,6 +1,6 @@
 package rooms;
 
-import guest.Guest;
+import guests.Guest;
 
 import java.util.ArrayList;
 
