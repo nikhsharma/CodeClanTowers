@@ -61,15 +61,26 @@ public class Hotel {
     }
 
     public void checkGuestIn(Guest guest, Room room) {
-        if (bedrooms.contains(room)) {
-            bedrooms.get(bedrooms.indexOf(room)).addGuest(guest);
-        }
-        if (conferenceRooms.contains(room)) {
-            conferenceRooms.get(conferenceRooms.indexOf(room)).addGuest(guest);
-        }
-        if (diningRooms.contains(room)) {
-            diningRooms.get(diningRooms.indexOf(room)).addGuest(guest);
-        }
+        room.addGuest(guest);
     }
 
+    public void checkGuestOut(Guest guest) {
+        for (Room room : bedrooms) {
+            if (room.getGuests().contains(guest)) {
+                room.removeGuest(guest);
+            }
+        }
+
+        for (Room room : conferenceRooms) {
+            if (room.getGuests().contains(guest)) {
+                room.removeGuest(guest);
+            }
+        }
+
+        for (Room room : diningRooms) {
+            if (room.getGuests().contains(guest)) {
+                room.removeGuest(guest);
+            }
+        }
+    }
 }

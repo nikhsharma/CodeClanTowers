@@ -14,6 +14,10 @@ public abstract class Room {
         this.capacity = capacity;
     }
 
+    public ArrayList<Guest> getGuests() {
+        return guests;
+    }
+
     public int getCapacity() {
         return capacity;
     }
