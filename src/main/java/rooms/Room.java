@@ -1,10 +1,12 @@
 package rooms;
 
+import guest.Guest;
+
 import java.util.ArrayList;
 
 public abstract class Room {
 
-    private ArrayList<String> guests;
+    private ArrayList<Guest> guests;
     private int capacity;
 
     public Room(int capacity) {
@@ -18,5 +20,9 @@ public abstract class Room {
 
     public int guestCount() {
         return guests.size();
+    }
+
+    public void addGuest(Guest guest) {
+        guests.add(guest);
     }
 }
