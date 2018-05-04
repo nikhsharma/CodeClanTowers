@@ -84,4 +84,11 @@ public class HotelTest {
         assertEquals(0, hotel.getConferenceRooms().get(0).guestCount());
         assertEquals(0, hotel.getDiningRooms().get(0).guestCount());
     }
+
+    @Test
+    public void canGetListOfGuestsInARoom() {
+        hotel.addRoom(bedroom);
+        hotel.checkGuestIn(guest, bedroom);
+        assertEquals(1, hotel.getGuestsInRoom(bedroom).size());
+    }
 }

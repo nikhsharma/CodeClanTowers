@@ -83,4 +83,8 @@ public class Hotel {
             }
         }
     }
+
+    public ArrayList<Guest> getGuestsInRoom(Room room) {
+        return room.getGuests();
+    }
 }
