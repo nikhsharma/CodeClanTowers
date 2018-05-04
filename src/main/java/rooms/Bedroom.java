@@ -2,13 +2,19 @@ package rooms;
 
 public class Bedroom extends Room {
 
-    RoomType roomType;
-    Double nightlyRate;
+    private int roomNumber;
+    private RoomType roomType;
+    private Double nightlyRate;
 
-    public Bedroom(RoomType roomType, Double nightlyRate) {
+    public Bedroom(int roomNumber, RoomType roomType, Double nightlyRate) {
         super(roomType.getValue());
+        this.roomNumber = roomNumber;
         this.roomType = roomType;
         this.nightlyRate = nightlyRate;
+    }
+
+    public int getRoomNumber() {
+        return roomNumber;
     }
 
     public RoomType getRoomType() {
