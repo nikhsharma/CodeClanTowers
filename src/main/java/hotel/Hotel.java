@@ -1,5 +1,6 @@
 package hotel;
 
+import guests.Guest;
 import rooms.Bedroom;
 import rooms.ConferenceRoom;
 import rooms.DiningRoom;
@@ -56,6 +57,18 @@ public class Hotel {
         }
         if (room.getClass() == DiningRoom.class) {
             diningRooms.add(room);
+        }
+    }
+
+    public void checkGuestIn(Guest guest, Room room) {
+        if (bedrooms.contains(room)) {
+            bedrooms.get(bedrooms.indexOf(room)).addGuest(guest);
+        }
+        if (conferenceRooms.contains(room)) {
+            conferenceRooms.get(conferenceRooms.indexOf(room)).addGuest(guest);
+        }
+        if (diningRooms.contains(room)) {
+            diningRooms.get(diningRooms.indexOf(room)).addGuest(guest);
         }
     }
 
