@@ -2,7 +2,13 @@ package rooms;
 
 public class Bedroom extends Room {
 
-    public Bedroom(int capacity) {
-        super(capacity);
+    RoomType roomType;
+
+    public Bedroom(RoomType roomType) {
+        this.roomType = roomType;
+    }
+
+    public int getCapacity() {
+        return roomType.getValue();
     }
 }
