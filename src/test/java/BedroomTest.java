@@ -58,6 +58,6 @@ public class BedroomTest {
 
     @Test
     public void hasTimeUntilCheckout() {
-        assertEquals(0, bedroom.getTimeUntilCheckout());
+        assertEquals(0, bedroom.getLengthOfStay());
     }
 }

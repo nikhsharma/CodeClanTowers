@@ -60,7 +60,7 @@ public class HotelTest {
         hotel.addRoom(bedroom);
         hotel.addRoom(conferenceRoom);
         hotel.addRoom(diningRoom);
-        hotel.checkGuestIn(guest, bedroom);
+        hotel.checkGuestIntoBedroom(guest, 2, bedroom);
         assertEquals(1, hotel.getBedrooms().get(0).guestCount());
         hotel.checkGuestIn(guest, conferenceRoom);
         assertEquals(1, hotel.getConferenceRooms().get(0).guestCount());
@@ -73,7 +73,7 @@ public class HotelTest {
         hotel.addRoom(bedroom);
         hotel.addRoom(conferenceRoom);
         hotel.addRoom(diningRoom);
-        hotel.checkGuestIn(guest, bedroom);
+        hotel.checkGuestIntoBedroom(guest, 2, bedroom);
         assertEquals(1, hotel.getBedrooms().get(0).guestCount());
         hotel.checkGuestIn(guest, conferenceRoom);
         assertEquals(1, hotel.getConferenceRooms().get(0).guestCount());
@@ -90,15 +90,15 @@ public class HotelTest {
     @Test
     public void cantCheckGuestInIfAtCapacity() {
         hotel.addRoom(bedroom);
-        hotel.checkGuestIn(guest, bedroom);
-        hotel.checkGuestIn(guest, bedroom);
+        hotel.checkGuestIntoBedroom(guest, 2, bedroom);
+        hotel.checkGuestIntoBedroom(guest, 2, bedroom);
         assertEquals(1, hotel.getGuestsInRoom(bedroom).size());
     }
 
     @Test
     public void canGetListOfGuestsInARoom() {
         hotel.addRoom(bedroom);
-        hotel.checkGuestIn(guest, bedroom);
+        hotel.checkGuestIntoBedroom(guest, 2, bedroom);
         assertEquals(1, hotel.getGuestsInRoom(bedroom).size());
     }
 
@@ -106,8 +106,14 @@ public class HotelTest {
     public void canReturnVacantBedrooms() {
         hotel.addRoom(bedroom);
         hotel.addRoom(bedroom2);
-        hotel.checkGuestIn(guest, bedroom);
+        hotel.checkGuestIntoBedroom(guest, 2, bedroom);
         assertEquals(1, hotel.getListOfVacantBedrooms().size());
+    }
 
+    @Test
+    public void canCheckGuestIntoBedroomForLengthOfTime() {
+        hotel.addRoom(bedroom);
+        hotel.checkGuestIntoBedroom(guest, 2, bedroom);
+        assertEquals(2, bedroom.getLengthOfStay());
     }
 }

@@ -61,8 +61,17 @@ public class Hotel {
     }
 
     public void checkGuestIn(Guest guest, Room room) {
+        if (room.getClass() != Bedroom.class) {
+            if (room.guestCount() < room.getCapacity()) {
+                room.addGuest(guest);
+            }
+        }
+    }
+
+    public void checkGuestIntoBedroom(Guest guest, int lengthOfStay, Bedroom room) {
         if (room.guestCount() < room.getCapacity()) {
             room.addGuest(guest);
+            room.setLengthOfStay(lengthOfStay);
         }
     }
 
