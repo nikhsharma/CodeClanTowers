@@ -55,4 +55,9 @@ public class BedroomTest {
         assertEquals(guest, bedroom.removeGuest(guest));
         assertEquals(0, bedroom.guestCount());
     }
+
+    @Test
+    public void hasTimeUntilCheckout() {
+        assertEquals(0, bedroom.getTimeUntilCheckout());
+    }
 }

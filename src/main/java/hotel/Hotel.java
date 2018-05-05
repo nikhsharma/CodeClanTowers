@@ -61,7 +61,9 @@ public class Hotel {
     }
 
     public void checkGuestIn(Guest guest, Room room) {
-        room.addGuest(guest);
+        if (room.guestCount() < room.getCapacity()) {
+            room.addGuest(guest);
+        }
     }
 
     public void checkGuestOut(Guest guest) {

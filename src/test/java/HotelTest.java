@@ -21,7 +21,7 @@ public class HotelTest {
     @Before
     public void before() {
         hotel = new Hotel();
-        bedroom = new Bedroom(23, RoomType.FAMILY, 150.00);
+        bedroom = new Bedroom(23, RoomType.SINGLE, 150.00);
         bedroom2 = new Bedroom(23, RoomType.FAMILY, 150.00);
         conferenceRoom = new ConferenceRoom("MeetRoom", 100, 1500.00);
         diningRoom = new DiningRoom(50);
@@ -85,6 +85,14 @@ public class HotelTest {
         assertEquals(0, hotel.getBedrooms().get(0).guestCount());
         assertEquals(0, hotel.getConferenceRooms().get(0).guestCount());
         assertEquals(0, hotel.getDiningRooms().get(0).guestCount());
+    }
+
+    @Test
+    public void cantCheckGuestInIfAtCapacity() {
+        hotel.addRoom(bedroom);
+        hotel.checkGuestIn(guest, bedroom);
+        hotel.checkGuestIn(guest, bedroom);
+        assertEquals(1, hotel.getGuestsInRoom(bedroom).size());
     }
 
     @Test
