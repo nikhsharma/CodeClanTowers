@@ -13,6 +13,7 @@ public class HotelTest {
 
     Hotel hotel;
     Bedroom bedroom;
+    Bedroom bedroom2;
     ConferenceRoom conferenceRoom;
     DiningRoom diningRoom;
     Guest guest;
@@ -21,6 +22,7 @@ public class HotelTest {
     public void before() {
         hotel = new Hotel();
         bedroom = new Bedroom(23, RoomType.FAMILY, 150.00);
+        bedroom2 = new Bedroom(23, RoomType.FAMILY, 150.00);
         conferenceRoom = new ConferenceRoom("MeetRoom", 100, 1500.00);
         diningRoom = new DiningRoom(50);
         guest = new Guest("Bob");
@@ -90,5 +92,14 @@ public class HotelTest {
         hotel.addRoom(bedroom);
         hotel.checkGuestIn(guest, bedroom);
         assertEquals(1, hotel.getGuestsInRoom(bedroom).size());
+    }
+
+    @Test
+    public void canReturnVacantBedrooms() {
+        hotel.addRoom(bedroom);
+        hotel.addRoom(bedroom2);
+        hotel.checkGuestIn(guest, bedroom);
+        assertEquals(1, hotel.getListOfVacantBedrooms().size());
+
     }
 }
